@@ -24,7 +24,7 @@ services:
       - GENERAL_AASREGISTRYINTEGRATION=true
       - GENERAL_SUBMODELREGISTRYINTEGRATION=true
       - GENERAL_DISCOVERYINTEGRATION=true
-      - GENERAL_EXTERNALURL=http://localhost:8082
+      - GENERAL_EXTERNALURL=http://static.161.94.98.91.clients.your-server.de:8082
       - GENERAL_AAS_PRECONFIG_PATHS=/app/preconfiguration
     volumes:
       - ./basyx/rsa-key.pem:/app/rsa-key.pem:ro
