@@ -27,7 +27,7 @@ services:
       - GENERAL_EXTERNALURL=http://localhost:8082
       - GENERAL_AAS_PRECONFIG_PATHS=/app/preconfiguration
     volumes:
-      - ./rsa-key.pem:/rsa-key.pem:ro
+      - ./rsa-key.pem:/app/rsa-key.pem:ro
       - ./aas:/app/preconfiguration:ro
     depends_on:
       basyx_configuration:
