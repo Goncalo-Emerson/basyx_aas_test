@@ -1,13 +1,4 @@
 services:
-  file-seeder:
-    image: alpine:latest
-    volumes:
-      # Mount the individual root files Portainer can successfully read
-      - ./basyx/rsa-key.pem:/source/rsa-key.pem:ro
-      # Mount the target named volumes
-      - rsa_key_vol:/target-rsa
-    command: >
-      sh -c "cp /source/rsa-key.pem /target-rsa/rsa-key.pem"
   aas-environment:
     container_name: aas-environment
     image: eclipsebasyx/aasenvironment-go:1.0.0-rc.2
@@ -36,7 +27,7 @@ services:
       - GENERAL_EXTERNALURL=http://localhost:8082
       - GENERAL_AAS_PRECONFIG_PATHS=/app/preconfiguration
     volumes:
-      - rsa_key_vol:/app/rsa-key.pem:ro
+      - ./rsa-key.pem:/app/rsa-key.pem:ro
       - ./aas:/app/preconfiguration:ro
     depends_on:
       basyx_configuration:
@@ -95,6 +86,3 @@ services:
       aas-environment:
         condition: service_started
     restart: unless-stopped
-volumes:
-  rsa_key_vol:
-    name: rsa_key_vol
