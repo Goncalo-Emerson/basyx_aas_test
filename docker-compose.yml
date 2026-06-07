@@ -6,6 +6,8 @@ services:
       - ./basyx/rsa-key.pem:/source/rsa-key.pem:ro
       # Mount the target named volumes
       - rsa_key_vol:/target-rsa
+    command: >
+      sh -c "cp /source/rsa-key.pem /target-rsa/rsa-key.pem"
   aas-environment:
     container_name: aas-environment
     image: eclipsebasyx/aasenvironment-go:1.0.0-rc.2
