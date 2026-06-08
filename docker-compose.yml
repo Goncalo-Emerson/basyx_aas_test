@@ -19,7 +19,7 @@ services:
       - POSTGRES_MAXOPENCONNECTIONS=10
       - POSTGRES_MAXIDLECONNECTIONS=10
       - POSTGRES_CONNMAXLIFETIMEMINUTES=5
-      - JWS_PRIVATEKEYPATH=/app/rsa-key.pem
+      # - JWS_PRIVATEKEYPATH=/app/rsa-key.pem
       - ABAC_ENABLED=false
       - GENERAL_AASREGISTRYINTEGRATION=true
       - GENERAL_SUBMODELREGISTRYINTEGRATION=true
@@ -27,7 +27,7 @@ services:
       - GENERAL_EXTERNALURL=http://localhost:8082
       - GENERAL_AAS_PRECONFIG_PATHS=/app/preconfiguration
     volumes:
-      - ./basyx/rsa-key.pem:/app/rsa-key.pem:ro
+      # - ./basyx/rsa-key.pem:/app/rsa-key.pem:ro
       - ./aas:/app/preconfiguration:ro
     depends_on:
       basyx_configuration:
